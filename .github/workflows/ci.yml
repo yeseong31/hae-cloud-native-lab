@@ -9,7 +9,7 @@ env:
   AWS_REGION: ap-south-1
   ECR_REGISTRY: 605863933397.dkr.ecr.ap-south-1.amazonaws.com
   ECR_REPOSITORY: user05-repo
-  IMAGE_TAG: latest
+  # IMAGE_TAG: latest
 
 jobs:
   build-and-push:
@@ -32,6 +32,11 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+
+      # ✅ 버전 자동 생성 (빌드 번호)
+      - name: Set image version tag
+        run: echo "IMAGE_TAG=v${{ github.run_number }}" >> $GITHUB_ENV
+
 
       # Docker 이미지 빌드 및 푸시
       - name: Build, Tag, and Push image to ECR
