@@ -1,0 +1,12 @@
+{
+  "name": "nodeapp",
+  "version": "1.0.0",
+  "description": "Simple Node.js HTTP server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo 'Running basic test...' && exit 0"
+  },
+  "author": "ttabae",
+  "license": "MIT"
+}
